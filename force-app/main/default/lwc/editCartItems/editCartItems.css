@@ -1,0 +1,72 @@
+.body{
+    width: 100%;
+    display: block;
+}
+
+.btn {
+	    display: flex;
+    justify-content: center;
+}
+
+.modal{
+    min-height: 700px;
+    min-width: 1000px;
+}
+
+
+.scroll{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 130px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.total{
+    color: black;
+    text-transform: uppercase;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.amnt{
+    color: black;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.orderSumm{
+    margin: 0 20px 0 60px;
+}
+
+button{
+    font-size: 18px;
+}
+
+.rowItem{
+    display: flex;
+    flex-direction: row;
+}
+
+.leftCol{
+    width: 70%;
+    justify-content: space-between;
+    border: 2.5px dotted gainsboro;
+}
+.righCol{
+    width: 30%;
+}
+
+.cellValue{
+    align-self: center;
+}
+
+.ordernumber{
+    color: green;
+    font-weight: 700;
+    border: 2px solid black;
+    padding: 4px;
+}

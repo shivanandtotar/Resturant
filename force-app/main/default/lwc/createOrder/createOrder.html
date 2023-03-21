@@ -1,0 +1,12 @@
+<template>
+	<div class="container">
+		<div class="innerContainer slds-p-around_medium lgc-bg">
+			<lightning-input onchange={handleAccountName} value={accName} type="text" label="Enter Account Name"
+				placeholder="type name..." required></lightning-input>
+		</div>
+		<div class="innerContainer slds-p-around_medium lgc-bg">
+			<lightning-button disabled={notValid} variant="brand" label="Create" onclick={handleClick} class="slds-m-left_x-small">
+			</lightning-button>
+		</div>
+	</div>
+</template>
