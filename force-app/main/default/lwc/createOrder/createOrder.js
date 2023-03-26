@@ -6,6 +6,7 @@ import { NavigationMixin } from 'lightning/navigation';
 
 export default class CreateOrder extends NavigationMixin(LightningElement) {
     accName = ''
+    notValid = true;
     handleAccountName(event) {
         this.accName = event.target.value;
         var letters = /^[A-Za-z]+$/;
@@ -16,7 +17,7 @@ export default class CreateOrder extends NavigationMixin(LightningElement) {
             inputField.setCustomValidity('');
         }
         else {
-            inputField.setCustomValidity('Please Enter Valid name');
+            inputField.setCustomValidity('Number cannot be present in input');
             this.notValid = true;
         }
         inputField.reportValidity();
@@ -27,7 +28,7 @@ export default class CreateOrder extends NavigationMixin(LightningElement) {
         createRecord({ name: this.accName })
             .then((result) => {
                 let orderIdCreated = result;
-                console.error('order created!! ', orderIdCreated);
+                console.error('order createde!! ', orderIdCreated)
                 window.location.assign('/' + orderIdCreated);
                 this.error = undefined;
             })

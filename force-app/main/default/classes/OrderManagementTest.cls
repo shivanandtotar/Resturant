@@ -26,9 +26,9 @@ public class OrderManagementTest {
             orderItems.add(oitem);
         }
         insert orderItems;
-        Id updatedOrderId = CartHandler.placeOrder(orderItems, orderId); // order placed in pendingState
+        Id updatedOrderId = CartHandler.placeOrder(orderItems, orderId,false); // order placed in pendingState
         //for exception = placeOrder
-        Id resultexption = CartHandler.placeOrder(orderItems, 'fefff');
+        Id resultexption = CartHandler.placeOrder(orderItems, 'fefff',false);
         //getOrderDetails
         Map<String, Object> orderDetails = CartHandler.getOrderDetails(orderId);
         

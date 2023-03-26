@@ -1,7 +1,7 @@
 public with sharing class HandleRestroPanel {
     @AuraEnabled(cacheable=true)
     public static List<Object> getPendingOrders(){
-        return [SELECT Id,OrderNumber,Status FROM Order WHERE Id IN (SELECT OrderId FROM OrderItem) and Status <> 'Draft'];
+        return [SELECT Id,OrderNumber,Status FROM Order WHERE Id IN (SELECT OrderId FROM OrderItem) and Status NOT IN ('Draft', 'Delivered') ];
     } 
     @AuraEnabled
     public static void rejectOrder(string orderId, String comment){

@@ -34,7 +34,7 @@
 						<p class="slds-text-heading_medium slds-align_absolute-center ">Product Inventory</p>
 						<div class="scroll slds-m-top_small">
 							<template for:each={products} for:item="item">
-								<div key={item.Id} class="rowItem">
+								<div key={item.key} class="rowItem">
 									<div
 										class="leftCol slds-p-around_small slds-m-top_small rowItem slds-m-right_xx-large">
 										<span class="cellValue slds-text-heading_small">
@@ -45,7 +45,7 @@
 									</span>
 									</div>
 									<div class="righCol cellValue slds-p-around_small">
-										<button name={item.Id} onclick={handleAddProduct} class="slds-button slds-button_neutral">Add Products</button>
+										<button name={item.Product2Id} onclick={handleAddProduct} class="slds-button slds-button_neutral">Add Products</button>
 									</div>
 								</div>
 							</template>
@@ -56,7 +56,7 @@
 						<p class="slds-text-heading_medium slds-align_absolute-center">Selected Items Inventory</p>
 						<div class="scroll slds-m-top_small">
 							<template for:each={selectedProducts} for:item="item">
-								<div key={item.Id} class="rowItem">
+								<div key={item.key} class="rowItem">
 									<div
 										class="leftCol slds-p-around_small slds-m-top_small rowItem slds-m-right_xx-large">
 										<span class="cellValue slds-text-heading_small">
@@ -68,12 +68,12 @@
 									</div>
 									<div class="righCol rowItem">
 
-										<lightning-icon name={item.Id} onclick={handleSubCount} size="xx-small "
+										<lightning-icon name={item.Product2Id} onclick={handleSubCount} size="xx-small "
 											class="cellValue " icon-name="utility:dash"></lightning-icon>
 										<span class="cellValue slds-text-heading_small slds-m-right_medium slds-m-left_medium">{item.quantity}</span>
-										<lightning-icon name={item.Id} onclick={handleAddCount} size="xx-small "
+										<lightning-icon name={item.Product2Id} onclick={handleAddCount} size="xx-small "
 											class="cellValue " icon-name="utility:add"></lightning-icon>
-										<lightning-icon name={item.Id} size="small" onclick={handleRemoveProduct}
+										<lightning-icon name={item.Product2Id} size="small" onclick={handleRemoveProduct}
 											class="cellValue slds-m-left_large " icon-name="utility:delete">
 										</lightning-icon>
 									</div>

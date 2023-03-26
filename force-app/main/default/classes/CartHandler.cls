@@ -6,7 +6,7 @@ public class CartHandler {
         returnDetail.put('Status',orderDetail.Status);
         returnDetail.put('orderNumber',orderDetail.OrderNumber);
         returnDetail.put('comment',orderDetail.Comment__c);
-        List<OrderItem> items = [select Product2.Name,TotalPrice  ,Quantity, UnitPrice from OrderItem where orderId=: orderId];
+        List<OrderItem> items = [select Id,Product2.Name,TotalPrice  ,Quantity, UnitPrice,Product2Id,PricebookEntryId   from OrderItem where orderId=: orderId];
         returnDetail.put('items',items);
         return returnDetail;
     }
@@ -17,10 +17,18 @@ public class CartHandler {
     }
 
     @AuraEnabled
-    public static Id placeOrder(List<OrderItem> orderItems, String orderId){
+    public static Id placeOrder(List<OrderItem> orderItems, String orderId, Boolean deletePreviousItems){
         Id newOrderId;
+
+        if(deletePreviousItems){
+            //delete order items
+            List<orderItem> lineItems = [select id from orderItem where orderId =: orderId];
+            delete lineItems;
+        }
+
         try{
-            insert orderItems;
+            upsert orderItems;
+            // insert orderItems;
             system.debug('line12 '+ orderId);
             Order orderDetail = [select Id, Status from Order where id =: orderId limit 1];
             orderDetail.Status = 'Pending';
